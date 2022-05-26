@@ -3,11 +3,14 @@ import json
 
 from flask import Flask
 from flask_cors import CORS
+from flask_login import LoginManager
 
 from .routes import rest_api
 from .models import db
 
 app = Flask(__name__)
+login = LoginManager(app)
+
 
 app.config.from_object('api.config.BaseConfig')
 

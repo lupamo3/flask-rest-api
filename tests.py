@@ -8,9 +8,9 @@ from api import app
    Sample test data
 """
 
-DUMMY_USERNAME = "apple"
-DUMMY_EMAIL = "apple@apple.com"
-DUMMY_PASS = "newpassword" 
+DUMMY_USERNAME = "test-basigo"
+DUMMY_EMAIL = "test-basigo@basigo.com"
+DUMMY_PASS = "basi123go" 
 
 @pytest.fixture
 def client():
