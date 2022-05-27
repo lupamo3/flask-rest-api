@@ -17,7 +17,6 @@ db = SQLAlchemy()
 class Users(UserMixin, db.Model):
     __tablename__ = 'users'
 
-
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(32), nullable=False)
     email = db.Column(db.String(64), nullable=False)
@@ -214,6 +213,15 @@ class Customer(db.Model):
 
     def update_photo(self, new_photo):
         self.photo = new_photo
+
+    def get_all_customers():
+        customers = Customer.query.all()
+        print("customers", customers)
+        return customers
+
+    def get_specific_customer(products_interested):
+        customer = Customer.query.filter_by(products_interested='product_a')
+        return customer
 
     
 

@@ -281,7 +281,6 @@ class CreateLead(Resource):
 
         return {
             "success": True,
-            "LeadID": new_lead,
             "msg": "The lead was successfully created",
         }, 200
 
@@ -322,3 +321,15 @@ class CreateCustomer(Resource):
         new_customer.save()
 
         return {"success": True}, 200
+
+@rest_api.route("/api/customer/all")
+class GetAllCustomers(Resource):
+    """
+    Returns all customers
+    """
+
+    @token_required
+    def get(self, current_user):
+        customer = Customer.get_specific_customer('product_a')
+        print('SHOW CUST', customer)
+        return {"success": True, "customer": customer}, 200
